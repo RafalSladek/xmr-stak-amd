@@ -13,10 +13,11 @@ install:
   - mkdir c:\xmr-stak-dep
   - curl -sL https://github.com/fireice-uk/xmr-stak-dep/releases/download/v1/xmr-stak-dep.zip -o xmr-stak-dep.zip
   - 7z x xmr-stak-dep.zip -o"c:\xmr-stak-dep" -y > nul
+  - tree c:\xmr-stak-dep /f
   - curl -sL https://github.com/RafalSladek/xmr-stak-amd-dep/archive/v1.0.zip -o xmr-stak-amd-dep-1.0.zip
   - 7z x xmr-stak-amd-dep-1.0.zip -o"C:\" -y > nul
   - set AMDAPPSDKROOT=C:\xmr-stak-amd-dep-1.0\3.0
-  - tree C:\
+  - tree C:\xmr-stak-amd-dep-1.0\3.0
   
 cache:
     - c:\xmr-stak-dep
