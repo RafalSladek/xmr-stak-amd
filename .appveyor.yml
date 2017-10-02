@@ -13,11 +13,9 @@ install:
   - mkdir c:\xmr-stak-dep
   - curl -sL https://github.com/fireice-uk/xmr-stak-dep/releases/download/v1/xmr-stak-dep.zip -o xmr-stak-dep.zip
   - 7z x xmr-stak-dep.zip -o"c:\xmr-stak-dep" -y > nul
-  - tree c:\xmr-stak-dep /f
   - curl -sL https://github.com/RafalSladek/xmr-stak-amd-dep/archive/v1.0.zip -o xmr-stak-amd-dep-1.0.zip
   - 7z x xmr-stak-amd-dep-1.0.zip -o"C:\" -y > nul
   - set AMDAPPSDKROOT=C:\xmr-stak-amd-dep-1.0\3.0
-  - tree C:\xmr-stak-amd-dep-1.0\3.0
   
 cache:
     - c:\xmr-stak-dep
@@ -28,6 +26,7 @@ build_script:
   - cd c:\xmr-stak-amd
   - mkdir build
   - cd build
+  - set MICROHTTPD_ROOT=C:\xmr-stak-dep\libmicrohttpd
   - set CMAKE_PREFIX_PATH=C:\xmr-stak-dep\hwloc;C:\xmr-stak-dep\libmicrohttpd;C:\xmr-stak-dep\openssl;
   - cmake -G "Visual Studio 15 2017 Win64" -T v141,host=x64 ..
   - msbuild xmr-stak-amd.sln /p:Configuration=Release
