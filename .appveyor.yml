@@ -17,7 +17,7 @@ install:
   - mkdir c:\AMD_APP_SDK
   - curl -sL https://github.com/RafalSladek/xmr-stak-amd-dep/archive/v1.0.zip -o xmr-stak-amd-dep-1.0.zip
   - 7z x xmr-stak-amd-dep-1.0.zip -o"C:\" -y > nul
-  - set -x AMDAPPSDKROOT=C:\xmr-stak-amd-dep-1.0
+  - set -x AMDAPPSDKROOT=C:\xmr-stak-amd-dep-1.0\3.0
   
 cache:
     - c:\xmr-stak-dep
