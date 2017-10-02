@@ -9,11 +9,20 @@ clone_folder: c:\xmr-stak-cpu
 
 version: '1.0.{build}-{branch}'
 
+
 install:
   - mkdir c:\xmr-stak-dep
   - curl -sL https://github.com/fireice-uk/xmr-stak-dep/releases/download/v1/xmr-stak-dep.zip -o xmr-stak-dep.zip
   - 7z x xmr-stak-dep.zip -o"c:\xmr-stak-dep" -y > nul
-
+  - mkdir c:\AMD_APP_SDK
+  - curl -sL https://github.com/RafalSladek/xmr-stak-amd-dep/archive/v1.0.zip -o xmr-stak-amd-dep-1.0.zip
+  - 7z x xmr-stak-amd-dep-1.0.zip -o"C:\" -y > nul
+  - set -x AMDAPPSDKROOT=C:\xmr-stak-amd-dep-1.0
+  
+cache:
+    - c:\xmr-stak-dep
+    - c:\xmr-stak-amd-dep-1.0
+    
 build_script:
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsMSBuildCmd.bat"
   - cd c:\xmr-stak-cpu
