@@ -34,7 +34,9 @@ build_script:
 test_script:
   - cd c:\xmr-stak-amd\build\bin\Release
   - copy ..\..\..\config.txt .
-  - echo '1.0.{build}-{branch}' > build.txt
+  - copy c:\xmr-stak-dep\openssl\bin\*.* .
+  - mkdir opencl
+  - copy ..\..\..\opencl\*.* opencl\
   - tree /f
 artifacts:
   - path: build\bin\Release
